@@ -1,0 +1,13 @@
+<section>
+  <%= @tours.each do |tour| %>
+    <div>
+      <h1><%= link_to tour.title, tour %></h1>
+      <dl>
+        <dt>Título</dt>
+        <dd><%= tour.location%></dd>
+        <dt>Categoria</dt>
+        <dd><%= tour.category%></dd>
+      </dl>
+    </div>
+  <% end %>
+</section>
