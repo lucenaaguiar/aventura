@@ -1,0 +1,14 @@
+<section>
+  <h1> Novo Passeio </h1>
+  <%= simple_form_for @tour do |f| %>
+    <%= f.input :title, label: 'Título' %>
+    <%= f.input :location, label: 'Local' %>
+    <%= f.input :category, label: 'Categoria' %>
+    <%= f.input :guide, label: 'Guia' %>
+    <%= f.input :contact, label: 'Contato' %>
+    <%= f.input :duration, label: 'Duração' %>
+    <%= f.input :amount, label: 'Preço' %>
+    <%= f.input :description, label: 'Descrição' %>
+    <%= f.submit 'Criar Passeio' %>
+  <% end %>
+</section>
