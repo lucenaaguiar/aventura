@@ -6,7 +6,9 @@ class ToursController < ApplicationController
   def create
     @tour = Tour.new(params.require(:tour).permit(:title, :location, :category,
                                                   :guide, :contact, :duration,
-                                                  :amount, :description))
+                                                  :amount, :description,
+                                                  :picture))
+
     if @tour.save
       redirect_to @tour
     else

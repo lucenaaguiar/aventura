@@ -1,0 +1,10 @@
+<section>
+  <h1> Novo Guia </h1>
+  <%= simple_form_for @guide do |f| %>
+    <%= f.input :name, label: 'Nome' %>
+    <%= f.input :location, label: 'Localidade' %>
+    <%= f.input :phone, label: 'Telefone' %>
+    <%= f.input :email, label: 'Email' %>
+    <%= f.submit 'Cadastrar Guia' %>
+  <% end %>
+</section>

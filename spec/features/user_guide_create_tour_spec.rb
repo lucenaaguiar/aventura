@@ -13,6 +13,7 @@ feature 'User create tour' do
     fill_in 'Preço',      with: 300.00
     fill_in 'Descrição',  with: 'Passeio a Serra da Mantiqueira com
                                  trilhas, cachoeiras, tiroleza'
+    attach_file('Enviar Imagem', Rails.root + 'spec/fixtures/cat2.jpg')
 
     click_on 'Criar Passeio'
 
@@ -25,5 +26,7 @@ feature 'User create tour' do
     expect(page).to have_content number_to_currency(300.00)
     expect(page).to have_content 'Passeio a Serra da Mantiqueira com
                                   trilhas, cachoeiras, tiroleza'
+
+    expect(page).to have_xpath('//img')
   end
 end
