@@ -23,5 +23,4 @@ feature 'User view tour' do
 
     expect(page).to have_content 'Nenhum passeio cadastrado.'
   end
-
 end
