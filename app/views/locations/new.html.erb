@@ -1,0 +1,7 @@
+<section>
+  <%= simple_form_for @location do |f| %>
+    <%= f.input :state, label: 'Estado' %>
+    <%= f.input :city, label: 'Cidade' %>
+    <%= f.submit 'Cadastrar Localidade' %>
+  <% end %>
+</section>
