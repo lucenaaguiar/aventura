@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :tours, only: [:new, :create, :show]
   resources :locations, only: [:new, :create, :show]
   resources :guides, only: [:new, :create, :show]
+  resources :categories, only: [:new, :create, :show]
 
 end
