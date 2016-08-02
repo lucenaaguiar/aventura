@@ -3,7 +3,7 @@
   <%= simple_form_for @tour do |f| %>
     <%= f.input :title, label: 'Título' %>
     <%= f.input :location, label: 'Local' %>
-    <%= f.input :category, label: 'Categoria' %>
+    <%= f.input :category_id, label: 'Categoria', collection: @categories, label_method: :name %>
     <%= f.input :guide, label: 'Guia' %>
     <%= f.input :contact, label: 'Contato' %>
     <%= f.input :duration, label: 'Duração' %>

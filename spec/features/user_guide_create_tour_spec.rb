@@ -2,11 +2,12 @@ require 'rails_helper'
 
 feature 'User create tour' do
   scenario 'successfully' do
+    category = create(:category)
     visit new_tour_path
 
     fill_in 'Título', with: 'Passeio a Serra da Mantiqueira'
     fill_in 'Local', with: 'São Paulo, SP'
-    fill_in 'Categoria', with: 'Trilha'
+    select category.name, from: 'Categoria'
     fill_in 'Guia',       with: 'Diego'
     fill_in 'Contato',    with: '(11) 1111-1111'
     fill_in 'Duração',    with: 120
@@ -15,10 +16,9 @@ feature 'User create tour' do
                                  trilhas, cachoeiras, tiroleza'
 
     click_on 'Criar Passeio'
-
     expect(page).to have_content 'Passeio a Serra da Mantiqueira'
     expect(page).to have_content 'São Paulo, SP'
-    expect(page).to have_content 'Trilha'
+    expect(page).to have_content category.name
     expect(page).to have_content 'Diego'
     expect(page).to have_content '(11) 1111-1111'
     expect(page).to have_content 120

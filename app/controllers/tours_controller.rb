@@ -1,11 +1,13 @@
 class ToursController < ApplicationController
   def new
     @tour = Tour.new
+    @categories = Category.all
   end
 
   def create
-    @tour = Tour.new(params.require(:tour).permit(:title, :location, :category,
-                                                  :guide, :contact, :duration,
+    @tour = Tour.new(params.require(:tour).permit(:title, :location,
+                                                  :category_id, :guide,
+                                                  :contact, :duration,
                                                   :amount, :description))
     if @tour.save
       redirect_to @tour
