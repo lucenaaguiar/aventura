@@ -1,0 +1,7 @@
+<section>
+  <%= simple_form_for @category do |f| %>
+    <%= f.input :name, label: 'Nome da categoria' %>
+    <%= link_to 'Voltar', root_path %>
+    <%= f.submit 'Salvar categoria' %>
+  <% end %>
+</section>
