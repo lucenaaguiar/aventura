@@ -7,4 +7,5 @@
   <%= @tour.duration %>
   <%= number_to_currency(@tour.amount) %>
   <%= @tour.description %>
+  <%= image_tag @tour.picture.url(:thumb) %>
 </section>
