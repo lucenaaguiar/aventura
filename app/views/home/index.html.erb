@@ -1,13 +1,23 @@
 <section>
-  <%= @tours.each do |tour| %>
-    <div>
-      <h1><%= link_to tour.title, tour %></h1>
-      <dl>
-        <dt>Título</dt>
-        <dd><%= tour.location%></dd>
-        <dt>Categoria</dt>
-        <dd><%= tour.category.name %></dd>
-      </dl>
-    </div>
-  <% end %>
+  <div>
+    <%= form_tag search_tours_path, method: 'get' do %>
+      <%= label_tag :categories, 'Tipo de passeio:' %>
+      <%= select_tag :categories, options_from_collection_for_select(@categories, :id, :name), prompt: 'Categoria'  %>
+      <%= submit_tag 'Buscar' %>
+    <% end %>
+  </div>
+
+  <div>
+    <% @tours.each do |tour| %>
+      <div>
+        <h1><%= link_to tour.title, tour %></h1>
+        <dl>
+          <dt>Título</dt>
+          <dd><%= tour.location%></dd>
+          <dt>Categoria</dt>
+          <dd><%= tour.category.name %></dd>
+        </dl>
+      </div>
+    <% end %>
+  </div>
 </section>
