@@ -4,4 +4,5 @@ class Tour < ApplicationRecord
   validates_attachment_content_type :picture, content_type: %r{\Aimage\/.*\Z}
 
   belongs_to :category
+  belongs_to :location
 end

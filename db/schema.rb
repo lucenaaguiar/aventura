@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802204446) do
+ActiveRecord::Schema.define(version: 20160802235331) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 20160802204446) do
 
   create_table "tours", force: :cascade do |t|
     t.string   "title"
-    t.string   "location"
     t.string   "guide"
     t.string   "contact"
     t.integer  "duration"
@@ -49,7 +48,9 @@ ActiveRecord::Schema.define(version: 20160802204446) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.integer  "category_id"
+    t.integer  "location_id"
     t.index ["category_id"], name: "index_tours_on_category_id"
+    t.index ["location_id"], name: "index_tours_on_location_id"
   end
 
 end

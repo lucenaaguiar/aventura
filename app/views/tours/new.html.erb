@@ -2,7 +2,7 @@
   <h1> Novo Passeio </h1>
   <%= simple_form_for @tour do |f| %>
     <%= f.input :title, label: 'Título' %>
-    <%= f.input :location, label: 'Local' %>
+    <%= f.input :location_id, label: 'Local',     collection: @locations,  label_method: :local %>
     <%= f.input :category_id, label: 'Categoria', collection: @categories, label_method: :name %>
     <%= f.input :guide, label: 'Guia' %>
     <%= f.input :contact, label: 'Contato' %>

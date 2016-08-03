@@ -9,7 +9,7 @@ feature 'User view tour' do
     click_on tour.title
 
     expect(page).to have_content tour.title
-    expect(page).to have_content tour.location
+    expect(page).to have_content tour.location.local
     expect(page).to have_content tour.category.name
     expect(page).to have_content tour.guide
     expect(page).to have_content tour.contact

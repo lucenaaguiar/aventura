@@ -9,7 +9,7 @@ feature 'User view tours' do
 
     tours.each do |tour|
       expect(page).to have_link tour.title
-      expect(page).to have_content tour.location
+      expect(page).to have_content tour.location.local
       expect(page).to have_content tour.category.name
     end
   end
