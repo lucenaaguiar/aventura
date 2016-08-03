@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :tour do
     sequence(:title) { |n| "Passeio_#{n}" }
-    location 'Rondonia'
+    location 'Sao Paulo'
     category
     duration 120
     amount 50.0

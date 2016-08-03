@@ -20,6 +20,10 @@ class ToursController < ApplicationController
     @tour = Tour.find(params[:id])
   end
 
+  def search
+    @tours = Tour.where(category_id: params[:categories])
+  end
+
   private
 
   def tour_params

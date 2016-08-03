@@ -1,0 +1,12 @@
+<section>
+  <% @tours.each do |tour| %>
+    <%= tour.title %>
+    <%= tour.location %>
+    <%= tour.category.name %>
+    <%= tour.guide.name %>
+    <%= tour.guide.phone %>
+    <%= tour.duration %>
+    <%= number_to_currency(tour.amount) %>
+    <%= tour.description %>
+  <% end %>
+</section>
