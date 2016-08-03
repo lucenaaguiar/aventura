@@ -3,6 +3,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require 'simplecov'
 SimpleCov.start 'rails'
 
+
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
@@ -35,6 +36,11 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include ActionView::Helpers::NumberHelper
   config.include ActionView::Helpers::TranslationHelper
+
+  config.include Warden::Test::Helpers
+  config.before :suite do
+    Warden.test_mode!
+  end
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

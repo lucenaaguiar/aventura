@@ -3,7 +3,8 @@ require 'rails_helper'
 feature 'User view tours' do
   scenario 'successfully' do
     category = create(:category)
-    tours = create_list(:tour, 10, category: category)
+    guide = create :guide
+    tours = create_list(:tour, 10, guide: guide, category: category)
 
     visit root_path
 

@@ -1,14 +1,13 @@
 class ToursController < ApplicationController
+  before_action :authenticate_guide!, only: [:new, :create]
+
   def new
     @tour = Tour.new
     @categories = Category.all
   end
 
   def create
-    @tour = Tour.new(params.require(:tour).permit(:title, :location, :picture,
-                                                  :category_id, :guide,
-                                                  :contact, :duration,
-                                                  :amount, :description))
+    @tour = current_guide.tour.new(tour_params)
     if @tour.save
       redirect_to @tour
     else
@@ -19,5 +18,13 @@ class ToursController < ApplicationController
 
   def show
     @tour = Tour.find(params[:id])
+  end
+
+  private
+
+  def tour_params
+    params.require(:tour).permit(:title, :location, :picture, :category_id,
+                                 :guide, :contact, :duration,
+                                 :amount, :description)
   end
 end
