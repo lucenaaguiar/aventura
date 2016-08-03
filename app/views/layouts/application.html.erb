@@ -12,8 +12,14 @@
     <% if flash[:notice] %>
       <%= flash[:notice] %>
     <% end %>
+    <% if flash[:alert] %>
+      <%= flash[:alert] %>
+    <% end %>
     <% if flash[:error] %>
       <%= flash[:error] %>
+    <% end %>
+    <% if guide_signed_in? %>
+      Olá <%= current_guide.email %>
     <% end %>
     <%= yield %>
   </body>

@@ -12,6 +12,7 @@ gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'sass-rails', '~> 5.0'
 gem 'paperclip', '~> 5.0.0'
+gem 'devise'
 
 group :development, :test do
   gem 'sqlite3'
