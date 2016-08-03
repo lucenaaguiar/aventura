@@ -3,8 +3,6 @@ FactoryGirl.define do
     sequence(:title) { |n| "Passeio_#{n}" }
     location
     category
-    guide 'Odair'
-    contact '11 09979869'
     duration 120
     amount 50.0
     description 'Passeio de bike em Rondonia'

@@ -4,8 +4,6 @@
     <%= f.input :title, label: 'Título' %>
     <%= f.input :location_id, label: 'Local',     collection: @locations,  label_method: :local %>
     <%= f.input :category_id, label: 'Categoria', collection: @categories, label_method: :name %>
-    <%= f.input :guide, label: 'Guia' %>
-    <%= f.input :contact, label: 'Contato' %>
     <%= f.input :duration, label: 'Duração' %>
     <%= f.input :amount, label: 'Preço' %>
     <%= f.input :description, label: 'Descrição' %>

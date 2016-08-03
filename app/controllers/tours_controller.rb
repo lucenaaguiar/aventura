@@ -1,4 +1,6 @@
 class ToursController < ApplicationController
+  before_action :authenticate_guide!, only: [:new, :create]
+
   def new
     @tour = Tour.new
     @categories = Category.all
@@ -6,10 +8,7 @@ class ToursController < ApplicationController
   end
 
   def create
-    @tour = Tour.new(params
-      .require(:tour)
-      .permit(:title, :location_id, :category_id, :picture,
-              :guide, :contact, :duration, :amount, :description))
+    @tour = current_guide.tour.new(tour_params)
     if @tour.save
       redirect_to @tour
     else
@@ -24,5 +23,13 @@ class ToursController < ApplicationController
 
   def search
     @tours = Tour.where(category_id: params[:categories])
+  end
+
+  private
+
+  def tour_params
+    params.require(:tour).permit(:title, :location_id, :picture, :category_id,
+                                 :guide, :contact, :duration,
+                                 :amount, :description)
   end
 end
